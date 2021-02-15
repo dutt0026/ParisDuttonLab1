@@ -1,64 +1,58 @@
-class Animal:
-    """
-    A class used to represent an Animal
+selection = 13
 
-    ...
 
-    Attributes
-    ----------
-    says_str : str
-        a formatted string to print out what the animal says
-    name : str
-        the name of the animal
-    sound : str
-        the sound that the animal makes
-    num_legs : int
-        the number of legs the animal has (default 4)
+def mainMenu():
+    print("1. Show all records.")
+    print("2. Show one record.")
+    print("3. Create new record")
+    print("4. Update record")
+    print("5. Delete record.")
+    print("6. Exit Program.")
+    selection = int(input("Enter choice: "))
 
-    Methods
-    -------
-    says(sound=None)
-        Prints the animals name and what sound it makes
-    """
+    while selection != 6:
 
-    says_str = "A {name} says {sound}"
+        if selection == 1:
+            showAll()
+        elif selection == 2:
+            showOne()
+        elif selection == 3:
+            createNew()
+        elif selection == 4:
+            update()
+        elif selection == 5:
+            delete()
+        else:
+            print("Enter a valid selection")
+            mainMenu()
 
-    def __init__(self, name, sound, num_legs=4):
-        """
-        Parameters
-        ----------
-        name : str
-            The name of the animal
-        sound : str
-            The sound the animal makes
-        num_legs : int, optional
-            The number of legs the animal (default is 4)
-        """
 
-        self.name = name
-        self.sound = sound
-        self.num_legs = num_legs
+def showAll():
+    print("Showing all records")
 
-    def says(self, sound=None):
-        """Prints what the animals name is and what sound it makes.
 
-        If the argument `sound` isn't passed in, the default Animal
-        sound is used.
 
-        Parameters
-        ----------
-        sound : str, optional
-            The sound the animal makes (default is None)
+    mainMenu()
 
-        Raises
-        ------
-        NotImplementedError
-            If no sound is set for the animal or passed in as a
-            parameter.
-        """
 
-        if self.sound is None and sound is None:
-            raise NotImplementedError("Silent Animals are not supported!")
+def showOne():
+    print("Showing one record")
+    mainMenu()
 
-        out_sound = self.sound if sound is None else sound
-        print(self.says_str.format(name=self.name, sound=out_sound))
+
+def createNew():
+    print("Creating a new record")
+    mainMenu()
+
+
+def update():
+    print("Updating record")
+    mainMenu()
+
+
+def delete():
+    print("Deleting record")
+    mainMenu()
+
+
+mainMenu()
